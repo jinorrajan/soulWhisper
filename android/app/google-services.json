@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "893550965833",
+    "project_id": "soulwhisper-8c36a",
+    "storage_bucket": "soulwhisper-8c36a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893550965833:android:1948a77bac87817240fb98",
+        "android_client_info": {
+          "package_name": "com.example.soulwhisper"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVWcxGeM3vbsuEJVgNGFcLg5OT6W6rAYM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
