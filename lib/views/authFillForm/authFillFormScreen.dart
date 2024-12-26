@@ -6,6 +6,7 @@ import 'package:soulwhisper/bloc/authFillFormBloc/auth_fill_form_bloc.dart';
 import 'package:soulwhisper/constant/colors.dart';
 
 import 'genderScreen.dart';
+import 'profileFillFormScreen.dart';
 
 class AuthFillFormScreen extends StatefulWidget {
   const AuthFillFormScreen({super.key});
@@ -36,71 +37,74 @@ class _AuthFillFormScreenState extends State<AuthFillFormScreen> {
                 progressColor = state.progressColor;
               }
 
-              return Column(
-                children: [
-                  SizedBox(
-                    height: size.height * 0.02,
-                  ),
-                  // Progress Bar
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: LinearProgressIndicator(
-                      minHeight: size.height * 0.01,
-                      value: progress,
-                      backgroundColor: AppColor.secondaryColor,
-                      valueColor: AlwaysStoppedAnimation(progressColor),
-                      borderRadius: BorderRadius.circular(15),
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: size.height * 0.02,
                     ),
-                  ),
-
-                  // PageView with form pages
-                  Expanded(
-                    child: PageView(
-                      controller: _pageController,
-                      onPageChanged: (page) {
-                        setState(() {
-                          currentPage = page;
-                        });
-                      },
-                      children: [
-                       const  Genderscreen(),
-                        _buildHabitsPage(),
-                        _buildPage('Page 3'),
-                        _buildPage('Page 4'),
-                        _buildPage('Page 5'),
-                        _buildPage('Page 6'),
-                        _buildPage('Page 7'),
-                      ],
-                    ),
-                  ),
-
-                  // Continue Button
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: SizedBox(
-                      width: size.width*0.8,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColor.primaryColor
-                        ),
-                        onPressed: () {
-                          if (currentPage < 6) {
-                            // Move to the next page
-                            _pageController.nextPage(
-                              duration: const Duration(milliseconds: 300),
-                              curve: Curves.easeInOut,
-                            );
-                            context.read<AuthFillFormBloc>().add(NextPageEvent());
-                          } else {
-                            // Form is completed
-                            print('Form Submitted');
-                          }
-                        },
-                        child: Text(currentPage < 6 ? 'Continue' : 'Submit',style: const TextStyle(color: AppColor.backgrounColor),),
+                    // Progress Bar
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: LinearProgressIndicator(
+                        minHeight: size.height * 0.01,
+                        value: progress,
+                        backgroundColor: AppColor.secondaryColor,
+                        valueColor: AlwaysStoppedAnimation(progressColor),
+                        borderRadius: BorderRadius.circular(15),
                       ),
                     ),
-                  ),
-                ],
+                
+                    // PageView with form pages
+                    Expanded(
+                      child: PageView(
+                        controller: _pageController,
+                        onPageChanged: (page) {
+                          setState(() {
+                            currentPage = page;
+                          });
+                        },
+                        children: [
+                         const  Genderscreen(),
+                         const  Profilefillformscreen(),
+                          _buildPage('Page 3'),
+                          _buildPage('Page 4'),
+                          _buildPage('Page 5'),
+                          _buildPage('Page 6'),
+                          _buildPage('Page 7'),
+                        ],
+                      ),
+                    ),
+                
+                    // Continue Button
+                    Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: SizedBox(
+                        width: size.width*0.8,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColor.primaryColor
+                          ),
+                          onPressed: () {
+                            if (currentPage < 6) {
+                              // Move to the next page
+                              _pageController.nextPage(
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeInOut,
+                              );
+                              context.read<AuthFillFormBloc>().add(NextPageEvent());
+                            } else {
+                              // Form is completed
+                              print('Form Submitted');
+                            }
+                          },
+                          child: Text(currentPage < 6 ? 'Continue' : 'Submit',style: const TextStyle(color: AppColor.backgrounColor),),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               );
             },
           ),

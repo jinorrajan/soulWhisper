@@ -1,6 +1,9 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable
 import 'package:flutter/material.dart';
 
 import '../../constant/colors.dart';
+import '../widgets/authFillFormWidgets/headingFormTextWidget.dart';
+import '../widgets/authFillFormWidgets/secondaryFillFormtextWidget.dart';
 
 class Genderscreen extends StatelessWidget {
   const Genderscreen({super.key});
@@ -14,22 +17,23 @@ class Genderscreen extends StatelessWidget {
         SizedBox(
           height: size.height * 0.06,
         ),
-        const Text(
-          'Whats Your Gender',
-          style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
-        ),
-        const Text(
-          'Tells about your gender',
-          style: TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
-        ),
+
+        // Using HeadingFormTextWidget
+        HeadingFillFormText(heading: 'Whats Your Gender',),
+
+        //  Using SecondaryFormTextWidget
+         SecondaryFillFormTextWidget(secondaryText:  'Tells about your gender',),
         SizedBox(
           height: size.height * 0.08,
         ),
+
+        
         Wrap(
         spacing: 50,
         runSpacing: 40,
-
           children: [
+
+            // GenderContainer widget
             _buildGenderContainer(size,"🙋‍♂️  Male"),
             
             _buildGenderContainer(size,"🙋‍♀️  Female"),
@@ -37,8 +41,6 @@ class Genderscreen extends StatelessWidget {
             _buildGenderContainer(size,"⚧️  Trans"),
 
             _buildGenderContainer(size,"🌈  Others"),
-
-
 
             ],
         )
@@ -61,3 +63,7 @@ class Genderscreen extends StatelessWidget {
     );
   }
 }
+
+
+
+
