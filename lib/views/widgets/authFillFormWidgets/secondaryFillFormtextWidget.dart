@@ -12,6 +12,7 @@ class SecondaryFillFormTextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
+      textAlign: TextAlign.center,
     secondaryText,
      style: const TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
             );

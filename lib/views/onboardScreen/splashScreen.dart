@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:soulwhisper/constant/colors.dart';
 import 'package:soulwhisper/views/onboardScreen/onboardingScreen.dart';
-import 'package:soulwhisper/views/homeScreen/homeScreen.dart';
 import 'package:soulwhisper/bloc/authBloc/auth_bloc.dart';
 
 import '../authFillForm/authFillFormScreen.dart';
